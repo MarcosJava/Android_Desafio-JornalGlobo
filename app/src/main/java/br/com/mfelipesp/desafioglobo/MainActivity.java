@@ -16,6 +16,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 class MainActivity extends AppCompatActivity {
 
@@ -49,6 +50,7 @@ class MainActivity extends AppCompatActivity {
     private void getServiceNoticias(){
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(NoticiaConstants.URL_API)
+                .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         NoticiasService service = retrofit.create(NoticiasService.class);
